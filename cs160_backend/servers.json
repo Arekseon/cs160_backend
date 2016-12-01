@@ -1,0 +1,17 @@
+{
+	"servers": [{
+			"Name": "Arekseon_aws",
+			"Host": "http://54.67.102.232:1337/"
+		}, {
+			"Name": "Omid_aws",
+			"Host": "http://54.183.208.53:1337/"
+		}, {
+			"Name": "Arekseon_linode",
+			"Host": "http://74.207.251.21:1337"
+		}, {
+			"Name": "some_dummy_server",
+			"Host": "http://0.0.0.314:1337"
+		}
+
+	]
+}
