@@ -30,7 +30,11 @@ def accept_post_requests():
    
       img_grey = cv2.imread(TEMP_FILE_NAME, cv2.IMREAD_GRAYSCALE);  
 
-      faces_points = get_faces_points(img_grey) 
+      try:
+         faces_points = get_faces_points(img_grey) 
+      except:
+         print("something went wrong")
+         faces_points = [[]]
       print "BULLET"
       time.sleep(2)
 
@@ -54,15 +58,16 @@ def accept_post_requests():
       # print "points here::" + points
       img = cv2.imread(TEMP_FILE_NAME)  
       # show_img(img)
-      return_img = draw_points_on_image(img, points)
+      try:
+         return_img = draw_points_on_image(img, points)
+      except:
+         print("something went wrong")
+         return_img = img
       cv2.imwrite(TEMP_FILE_NAME, return_img);
       
       print "BULLET 2"
-      # show_img(return_img)
-      # dat = json.dumps(faces_points)
-      # resp = Response(response=return_img,
-      #    status=200, \
-      #    mimetype="application/json")
+
+
       BUSY = False
       return send_file(TEMP_FILE_NAME)
 
@@ -91,6 +96,6 @@ if __name__ == '__main__':
    app.run(
       debug=True, 
       threaded=True,
-         host="127.0.0.1",
+         host="0.0.0.0",
          port=int("1337")
    )
