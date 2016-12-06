@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, url_for, Response, send_file
 from do_the_Job import get_faces_points, draw_points_on_image
 # Initialize the Flask application
 import cv2, json, time
-TEMP_FILE_NAME = "temp_file.jpg" 
+TEMP_FILE_NAME = "temp_file.png" 
 global BUSY
 BUSY = False
 app = Flask(__name__)
